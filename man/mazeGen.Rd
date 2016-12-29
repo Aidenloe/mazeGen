@@ -8,13 +8,6 @@ The mazeGen package provides a function to generate the Perceptual Elithorn Maze
 }
 \details{
 The \code{\link{maze}} function will allow you to generate the mazes according to certain specification. Currently the maximum number of row is 18.  \cr
-
-60 different coordinates included in the mazeGen package\cr
-There are 60 different coordinates in total. Starting from a grid with three rows all the way to a grid with eighteen rows. For every maze level, there are 4 types (Up, Down, Left, Right). This allows one to study people's perception of the maze and how it might affect their planning ability. As the maze level increases, it takes longer to generate the item.
-\code{\link{gridThreeUp}} The maze begins from the bottom to the top.\cr
-\code{\link{gridThreeDown}} The maze begins from the top to the bottom.\cr
-\code{\link{gridThreeLeft}} The maze begins from the right to the left.\cr
-\code{\link{gridThreeRight}} The maze begins from the left to the right.\cr
 }
 \references{
 Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr

@@ -13,8 +13,8 @@
 
 # require(igraph)
 cal <- function(rank, nodePosition){
- rank<- 10
-  nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
+ #rank<- 10
+  #nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
 
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
