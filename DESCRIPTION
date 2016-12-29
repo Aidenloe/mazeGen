@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Package: mazeGen
 Type: Package
 Title: Elithorn Maze Generator
@@ -14,16 +13,3 @@ Imports:
 LazyData: TRUE
 RoxygenNote: 5.0.1
 
-=======
-Package: numGen
-Type: Package
-Title: Number Series Generator
-Version: 0.1
-Date: 2016-09-09
-Author: Aiden Loe
-Maintainer: Aiden <bsl28@cam.ac.uk>
-Description: A intelligent generator that creates number series items based on cognitive models.
-License: GPL-3
-LazyData: TRUE
-RoxygenNote: 5.0.1
->>>>>>> 47ff325ea0ad7b03b0baaf101642fd42563bb24e
