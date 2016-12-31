@@ -4,7 +4,7 @@
 \alias{colourNodePosition}
 \title{colourNodePosition}
 \usage{
-colourNodePosition(rank, satPercent, seed)
+colourNodePosition(rank = 3, satPercent = 0.5, seed = 1)
 }
 \arguments{
 \item{rank}{This is the Rank of the maze.}

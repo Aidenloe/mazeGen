@@ -8,13 +8,18 @@
 # ' @title blackNodeRoutes
 # ' @examples
 # ' rank <- 5
-# ' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+# ' a <- colourNodePosition(rank=5,satPercent=0.5,seed=1)
 # ' blackNodeRoutes(rank,a)
 
 
 
 blackNodeRoutes <- function(rank,nodePosition){
 
+  if(rank != nodePosition$rank){
+    stop("The input rank and the rank to calculate the colour node positions are not the same.")
+  }
+
+nodePosition <- nodePosition$nodePosition
   ##COMPUTE THE PATHS
   #all of them
   #allPaths
@@ -63,4 +68,7 @@ return(table(endScore$totalScore))
 }
 
 
-
+#  rank <- 5
+# a <- colourNodePosition(rank=5,satPercent=0.5,seed=1)
+# a$nodePosition
+#  blackNodeRoutes(rank,a)

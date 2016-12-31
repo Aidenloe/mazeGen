@@ -14,10 +14,17 @@
 #'
 
 #### Colour Node Position #####
-colourNodePosition<- function(rank, satPercent, seed){
+colourNodePosition<- function(rank=3, satPercent=0.5, seed=1){
 saturation<- ceiling(length(lowerGrid(rank))*satPercent)
 set.seed(seed)
 nodePosition <- sample(lowerGrid(rank)[-1], saturation, replace=FALSE)
+
+nodePosition <- list(seed = seed,
+     rank = rank,
+     satPercent= satPercent,
+     nodePosition=nodePosition)
+
+class(nodePosition) <- "np"
 return(nodePosition)
 }
 

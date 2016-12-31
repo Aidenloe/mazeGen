@@ -4,17 +4,24 @@
 #' @description This returns several results.
 #' @details This function calculates the count of all the possible black node routes, the maximum score one can achieve for a given rank of a colour node position, all the minimum routes possible, and all the possible routes.
 #' @author Aiden Loe
-#' @title Calculate Item Parameters
+#' @title Calculate Maze Parameters
 #' @examples
 #' rank <- 10
 #' nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
-#' c <- cal(rank,nodePosition)
+#' c <- mazeEst(rank,nodePosition)
 
 
 # require(igraph)
-cal <- function(rank, nodePosition){
+mazeEst <- function(rank, nodePosition){
  #rank<- 10
-  #nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
+ #nodePosition <- colourNodePosition(rank=10,satPercent=0.2,seed=1)
+
+  if(rank != nodePosition$rank){
+    stop("The input rank and the rank to calculate the colour node positions are not the same.")
+  }
+
+ nodePosition <- nodePosition$nodePosition
+
 
   #### Lower Grid Maze Nodes ####
   G <- graph(genMaze(rank), directed = TRUE )
@@ -88,7 +95,7 @@ allminPath <- allPaths[M[1,W]]
 allminPath<- do.call("rbind",allminPath)
 m2 <- 1:nrow(allminPath)
 rownames(allminPath) <- rownames(m2, do.NULL = FALSE, prefix = "min.Route.")
-colnames(allminPath) <- paste("Step_",1:ncol(allminPath), sep = "")
+colnames(allminPath) <- paste("Step_",0:minStep, sep = "")
 
 #print("the minimum number of steps for the optimal solution is: ")
 #print(min(LL)-1)
@@ -98,24 +105,29 @@ minLegRoutes <- length(W)
 
 #### ALL POSSIBLE PATH ####
 #print("The optimal paths are: ")
+totalStep <- (max(LL)-1)
 allPossiblePaths <-which( LL == rank) #only select those that reaches to the top
 allPath <- allPaths[M[1,allPossiblePaths]]
 allPath<- do.call("rbind",allPath)
 m2 <- 1:nrow(allPath)
+
 rownames(allPath) <- rownames(m2, do.NULL = FALSE, prefix = "pos.Route.")
-colnames(allPath) <- paste("Step_",1:ncol(allPath), sep = "")
+colnames(allPath) <- paste("Step_",0:totalStep, sep = "")
 #print(("the number of solutions is: "))
 maxScoreRoutes <- nrow(allPath)
-allPath
 
-  est <- list(maxScore=maxnu,
+
+  est <- list(rank = rank,
+              nodePosition = nodePosition,
+              maxScore=maxnu,
               possibleBlackNodeRoutes=pbnr,
               minStep=minStep,
               minPath = list(allminPath = allminPath,
                              minRoutes=minLegRoutes),
               allPP = list(allPath = allPath,
                            maxScoreRoutes=maxScoreRoutes))
-est
+
+
   class(est) <- c("est","aig")
 
 return(est)
@@ -124,9 +136,9 @@ return(est)
 
 #
 #
-# rank <- 10
-# satPercent <- 0.5
-# genUniqueSolution(rank,satPercent,15)
-# nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
-# c <- cal(rank,nodePosition)
-# c
+#  rank <- 3
+# # satPercent <- 0.5
+# # genUniqueSolution(rank,satPercent,15)
+#  nodePosition <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+#  c <- cal(rank,nodePosition)
+#  c

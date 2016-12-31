@@ -7,7 +7,9 @@
 The mazeGen package provides a function to generate the Perceptual Elithorn Maze as well as the methods for calculating task difficulty without incorporating reponses.
 }
 \details{
-The \code{\link{maze}} function will allow you to generate the mazes according to certain specification. Currently the maximum number of row is 18.  \cr
+The \code{\link{maze}} function will allow you to generate the mazes according to certain specification. Currently the maximum number of row is 18. To get a summary of the maze parameters, users can use the \code{\link{mazeEst}}.  \cr
+
+The difficulty of the maze can be calculated using the \code{\link{mazeDiff}}. Using this approch does not consider player's responses but just the parameters involve to create the maze. There are three options using  to calculate the maze difficulty using the function. \cr
 }
 \references{
 Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr

@@ -3,14 +3,33 @@
 print.est <-function(x,...){
   est <- x
   cat("Summary:")
-  cat(paste0("\n The Maximum Score(dots) that can be achieved in this maze is ",est$maxScore, ".\n"))
-  cat("\n The number of separate paths across the different number of dots is: \n")
+  cat(paste0("\nMaze: Rank ", est$rank ))
+  cat("\nThe coloured dots are located in: ")
+  cat(est$nodePosition)
+  cat(paste0("\nThe maximum score(dots) that can be achieved in this maze is ",est$maxScore, "."))
+  cat(paste0("\nThe minimum number of steps to achieve a maximum score is ", est$minStep, "."))
+  cat(paste0("\nThe path(s) with the minimum number of steps to achieve a maximum score is ", est$minPath$minRoutes, "."))
+  cat(paste0("\nAll possible paths to achieve a maximum score is ", est$allPP$maxScoreRoutes, ".\n"))
+  cat("\nThe number of separate paths across the different number of dots are: \n")
   cat('\n')
   print(est$possibleBlackNodeRoutes)
   #print(allPath)
-  cat(paste0("\n The minimum number of steps to achieve maximum score is ", est$minStep, ".\n"))
-  cat(paste0("\n The maximum number of solution for this maze is ", est$allPP$maxScoreRoutes, ".\n"))
+
+  cat(paste0("\nThe paths with minimum steps are: \n"))
+  print(est$minPath$allminPath)
+  cat(paste0("\nAll possible paths are: \n"))
+  print(est$allPP$allPath)
 }
 
+
+#' @export
+#'
+print.np <- function(x,...){
+  nodePosition<- x
+  cat("Result:")
+  cat("\nMaze",nodePosition$rank)
+  cat("\nSaturation:",nodePosition$satPercent*100,"%")
+  cat("\nThe coloured dots are in:", nodePosition$nodePosition)
+}
 
 

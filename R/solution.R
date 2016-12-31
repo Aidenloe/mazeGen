@@ -1,20 +1,26 @@
-#' @export
-#' @param rank This is the Rank of the maze
-#' @param nodePosition Tells you all the position of the black dots.
-#' @description This function tells us the solution for all series of routes including both black and non black dots.
-#' @details This function tells us the solution for all series of routes including both black and non black dots.
-#' @author Aiden Loe and Maria Sanchez
-#' @title solution
-#' @examples
-#' rank <- 3
-#' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-#' solution(rank,a)
+# ' @export
+# ' @param rank This is the Rank of the maze
+# ' @param nodePosition Tells you all the position of the black dots.
+# ' @description This function tells us the solution for all series of routes including both black and non black dots.
+# ' @details This function tells us the solution for all series of routes including both black and non black dots.
+# ' @author Aiden Loe and Maria Sanchez
+# ' @title solution
+# ' @examples
+# ' rank <- 3
+# ' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+# ' solution(rank,a)
 
 solution <- function(rank,nodePosition){
+  if("np" %in% class(nodePosition) == FALSE){
+    stop("nodePosition must be calculated using the colourNodePosition function.")
+  }
 
+  if(rank != nodePosition$rank){
+    stop("The input rank and the rank to calculate the colour node positions are not the same.")
+  }
   #set.seed(set.seed)
   #nodePosition <- colourNodePosition(rank, satPercent,set.seed)
-  nodePosition <- nodePosition
+  nodePosition <- nodePosition$nodePosition
 
   print("The black points are in nodes: ")
   print(nodePosition)
@@ -76,7 +82,4 @@ solution <- function(rank,nodePosition){
   return(length(W))
 }
 
-#' rank <- 3
-#' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-#solution(rank,nodePosition)
 

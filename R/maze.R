@@ -74,9 +74,6 @@ maze <- function(rank = 3,
   # fontColour="white"
   # Timer=FALSE
 
-
-
-
   G <- graph(genMaze(rank), directed = TRUE )
 
   #Node length
@@ -92,7 +89,7 @@ maze <- function(rank = 3,
 
   #saturation and node Position
   nodePosition <- colourNodePosition(rank, satPercent,seed)
-  nodePosition
+  nodePosition <- nodePosition$nodePosition
 
   # max score
   maxscore <- maxScore(rank, nodePosition)
