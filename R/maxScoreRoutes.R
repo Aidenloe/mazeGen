@@ -1,6 +1,5 @@
 # ' @export
 # ' @import igraph
-# ' @param rank This is the Rank of the maze.
 # ' @param nodePosition tells you all the position of the black dots
 # ' @description This tells you all the possible routes to achieve a maximum score based on the colourNode position and a given rank.
 # ' @details The maxScoreRoutes function tells you the possible routes to achieve a maximum score.
@@ -8,16 +7,20 @@
 # ' @author Aiden Loe and Maria
 # ' @title maxScoreRoutes
 # ' @examples
-# ' rank <- 3
-# ' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-# ' maxScoreRoutes(rank,a)
+# ' a <- np(rank=3,satPercent=0.5,seed=1)
+# ' maxScoreRoutes(a)
 
 
-maxScoreRoutes <- function(rank,nodePosition){
+maxScoreRoutes <- function(nodePosition){
+
+  if("np" %in% class(nodePosition) == FALSE){
+    stop("nodePosition must be calculated using the np function.")
+  }
 
   #set.seed(set.seed)
   #nodePosition <- colourNodePosition(rank, satPercent,set.seed)
-  nodePosition <- nodePosition
+  rank <- nodePosition$rank
+  nodePosition <- nodePosition$nodePosition
 
   ##COMPUTE THE PATHS
 

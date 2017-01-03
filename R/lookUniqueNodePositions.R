@@ -18,7 +18,7 @@
 # ' #Black nodes distribution for single unique solution + seed number
 # ' uniqueNodePositions(rank,satPercent,justOne)
 # '
-# ' colourNodePosition(rank,satPercent,seed=justOne)
+# ' np(rank,satPercent,seed=justOne)
 # '}
 
 
@@ -30,7 +30,7 @@ uniqueNodePositions <- function(rank,satPercent, seed){
     num<-lookUniqueSolution(rank,satPercent,seed)
   }
 
-  nodePosition <-  colourNodePosition(rank, satPercent,seed)
+  nodePosition <-  np(rank, satPercent,seed)
   listObject <- list(nodePosition,seed)
   names(listObject) <- c("colourNodePosition","seed")
   return(listObject)

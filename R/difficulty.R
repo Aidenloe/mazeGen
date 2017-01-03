@@ -1,7 +1,6 @@
 #' @export
-#' @param rank This is the Rank of the maze.
 #' @param nodePosition This is the distribution of the colour node positions.
-#' @param model There are three types of model to select from: "First", "Second" or "Third".
+#' @param model There are three types of model to select from: "m1", "m2" or "m3".
 #' @description This function tells us the difficulty level of the rank given a saturation and black node distribution
 #' @details This function tells us the difficulty level of the rank given a saturation and black node distribution. The calculation of the difficulty level follows the Davies & Davies (1965) paper. In the article, there are three ways to calculate maze difficulty.
 #' In Model 1, only two parameters were considered: rank and the number of possible paths through the maximum number of routes.
@@ -21,38 +20,43 @@
 #' We included all three approaches to calculate maze difficulty. It was to incorporated all the possible parameters of the task features that may potentially influence maze difficulty.
 #' @author Aiden Loe and Maria Sanchez
 #' @title Maze Diffculty
+#' @seealso \code{\link{mazeEst}}, \code{\link{mazeAbility}}, \code{\link{np}}
 #' @references
-#' Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
-#' @examples \dontrun{
-#'
-#' rank <- 5
+#' Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. \emph{British Journal of Psychology, 56(2-3)}, 295-302. \cr
+#' @examples
 #'
 #' #Black nodes distribution
-#' nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=1)
+#' nodePosition <- np(rank=5,satPercent=0.5,seed=1)
 #'
 #' #calculate difficulty
-#' mazeDiff(rank ,nodePosition, model="first")
-#' }
+#' mazeDiff(nodePosition, model="m1")
+#'
 
+mazeDiff <- function(nodePosition, model = "m1"){
 
-mazeDiff <- function(rank, nodePosition, model = "first"){
+  if(exists("nodePosition")==FALSE){
+    stop("Please include an object for nodePosition")
+  }
+
     if("np" %in% class(nodePosition) == FALSE){
-      stop("nodePosition must be calculated using the colourNodePosition function.")
+      stop("nodePosition must be calculated using the np function.")
     }
 
-  if(rank != nodePosition$rank){
-    stop("The input rank and the rank to calculate the colour node positions are not the same.")
+#   if(rank != nodePosition$rank){
+#     stop("The input rank and the rank to calculate the colour node positions are not the same.")
+#   }
+
+  if(model != "m1" && model != "m2" && model != "m3"){
+    stop("Please select model as either m1, m2 or m3.")
   }
 
-  if(model != "first" && model != "second" && model != "third"){
-    stop("Please select model as either first, second or third model.")
-  }
+  rank <- nodePosition$rank
 
-  u_Mhat <-nrow(maxScore(rank,nodePosition$nodePosition)) # number of optimised routes
-  legs <- minStep(rank,nodePosition$nodePosition)
-  if(model=="first"){
+  u_Mhat <-nrow(maxScore(nodePosition)) # number of optimised routes
+  legs <- minStep(nodePosition)
+  if(model=="m1"){
     diff<- log((2^rank)/u_Mhat)
-  }else if(model=="second"){
+  }else if(model=="m2"){
     diff<- log((2^rank * nodePosition$satPercent^4)/u_Mhat)
   }else{
   diff<- log((2^rank * nodePosition$satPercent^4 * legs^4)/u_Mhat)

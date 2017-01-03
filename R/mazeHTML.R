@@ -20,7 +20,8 @@
 #' The grid object needs to be the same as the rank given.
 #' @author Aiden Loe
 #' @title Generate Elithorn Maze
-#' @examples \dontrun{
+#' @seealso \code{\link{mazeAbility}}, \code{\link{mazeDiff}}, \code{\link{np}}
+#' @examples
 #'
 #' rank <- 3
 #' i <- 2
@@ -30,18 +31,17 @@
 #' grid <- gridThreeUp
 #'
 #' #Folder to save html/
-#' setwd("~/desktop")
-#' filePath<- getwd()
+#' #setwd("~/desktop")
+#' #filePath<- getwd()
 #'
 #' #Generate item
-#' maze(rank,satPercent,seed=5,grid = grid,wd=filePath,
+#' mazeHTML(rank,satPercent,seed=5,grid = grid,wd=NULL,
 #' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 #' Timer=TRUE)
 #'
-#'}
-#'
 
-maze <- function(rank = 3,
+
+mazeHTML <- function(rank = 3,
                  satPercent = 0.5,
                  seed = 1,
                  grid = NULL,
@@ -64,15 +64,16 @@ maze <- function(rank = 3,
   }
 
 
-  # rank = 8
-  # satPercent = 0.5
-  # seed = 1
-  # grid = gridEightUp
-  # wd = setwd("~/desktop")
-  # background="#7abcff"
-  # boxBackground = "#66CDAA"
-  # fontColour="white"
-  # Timer=FALSE
+# require(igraph)
+#   rank = 8
+#   satPercent = 0.5
+#   seed = 1
+#   grid = gridEightUp
+#   wd = setwd("~/desktop")
+#   background="#7abcff"
+#   boxBackground = "#66CDAA"
+#   fontColour="white"
+#   Timer=FALSE
 
   G <- graph(genMaze(rank), directed = TRUE )
 
@@ -88,14 +89,16 @@ maze <- function(rank = 3,
   allPaths
 
   #saturation and node Position
-  nodePosition <- colourNodePosition(rank, satPercent,seed)
-  nodePosition <- nodePosition$nodePosition
+  nodePosition <- np(rank, satPercent,seed)
 
   # max score
-  maxscore <- maxScore(rank, nodePosition)
+  maxscore <- maxScore(nodePosition)
+
   maxscore
   maxScore <- max(maxscore$totalScore)
   maxScore
+
+  nodePosition <- nodePosition$nodePosition
 
   #minimum steps to achieve maximum score
   # mazeGen:::minStep(rank, nodeLength)
@@ -116,6 +119,7 @@ maze <- function(rank = 3,
 
   ##### From Here (HTML) ####
   htmlfile = file.path(paste0(wd, "/seed",seed,".html"))
+
 
   cat("\n<html><head>",file=htmlfile)
   # CSS
@@ -140,7 +144,7 @@ maze <- function(rank = 3,
 
 
   # Plot Graph
-  png(filename=paste0("map_",seed,",.png"), height=1000, width=1000)
+  png(filename=paste0("map_",seed,".png"), height=1000, width=1000)
 
   tryCatch(
     {plot(G, layout=coordinates.1)

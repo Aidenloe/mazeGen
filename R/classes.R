@@ -33,3 +33,15 @@ print.np <- function(x,...){
 }
 
 
+#' @export
+#'
+print.ab <- function(x,...){
+  ability<- x
+  cat("Result\n")
+  cat("Connected Dots:", ability$dot,"\n")
+  cat("Most Frequent Dots:", as.numeric(ability$mostFreq[,1]), "with", as.numeric(ability$mostFreq[,2]), "paths\n")
+  cat("Ability Score based on model",ability$model,":",ability$userResult[,3],"\n")
+  cat("\n No. of dots linked\n")
+  print(ability$result)
+}
+

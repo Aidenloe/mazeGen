@@ -1,25 +1,50 @@
 #' @export
-#' @param rank This is the Rank of the maze.
 #' @param nodePosition Tells you all the position of the black dots.
-#' @description This returns several results.
+#' @description This returns the estimate of various maze parameters.
 #' @details This function calculates the count of all the possible black node routes, the maximum score one can achieve for a given rank of a colour node position, all the minimum routes possible, and all the possible routes.
-#' @author Aiden Loe
 #' @title Calculate Maze Parameters
+#' @author Aiden Loe
+#' @seealso \code{\link{np}}
+#' @return
+#' \describe{
+#' \item{rank}{The rank of the maze}
+#' \item{nodePosition}{The location of the coloured dots}
+#' \item{maxScore}{The maximum score achievable in the maze.}
+#' \item{possibleBlackNodeRoutes}{All possible routes that passes a certain number of black dots}
+#' \item{minStep}{The minimum steps to achieve the maximum score}
+#' \item{allminPath}{The number of paths with the minimum steps to achieve the maximum score.}
+#' \item{minRoutes}{All the paths with the minimum steps to achieve the maximum score.}
+#' \item{allPath}{The number of possible paths to achieve the maximum score.}
+#' \item{maxScoreRoutes}{All possible paths to achieve the maximum score.}
+#'     }
+#'
+#' @references
+#' Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
+#'
+#' Davies, M. G., & Davies, D. M. (1965). Some analytical properties of Elithorn\verb{'s} perceptual maze. Journal of Mathematical Psychology, 2(2), 371-380.
+#'
 #' @examples
 #' rank <- 10
-#' nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
-#' c <- mazeEst(rank,nodePosition)
+#' nodePosition <- np(rank=10,satPercent=0.5,seed=16)
+#' c <- mazeEst(nodePosition)
 
 
 # require(igraph)
-mazeEst <- function(rank, nodePosition){
+mazeEst <- function(nodePosition){
  #rank<- 10
- #nodePosition <- colourNodePosition(rank=10,satPercent=0.2,seed=1)
+ #nodePosition <- np(rank=10,satPercent=0.2,seed=1)
 
-  if(rank != nodePosition$rank){
-    stop("The input rank and the rank to calculate the colour node positions are not the same.")
+
+  if(exists("nodePosition")==FALSE){
+    stop("Please include an object for nodePosition")
   }
 
+
+  if("np" %in% class(nodePosition) == FALSE){
+    stop("nodePosition must be calculated using the np function.")
+  }
+
+ rank <- nodePosition$rank
  nodePosition <- nodePosition$nodePosition
 
 
@@ -61,6 +86,10 @@ W<-which( LL == rank)
 endScore <- totalScore.df.1[which(totalScore.df.1$index %in% W),]
 possibleBlackNodeRoutes<- table(endScore$totalScore)
 pbnr <- t(as.matrix(possibleBlackNodeRoutes))
+
+
+blackNodeRoutes
+
 colnames(pbnr) <- paste(colnames(pbnr),"dot(s)" , sep = "_")
 rownames(pbnr) <- c('Path')
 
@@ -139,6 +168,6 @@ return(est)
 #  rank <- 3
 # # satPercent <- 0.5
 # # genUniqueSolution(rank,satPercent,15)
-#  nodePosition <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
+#  nodePosition <- np(rank=3,satPercent=0.5,seed=1)
 #  c <- cal(rank,nodePosition)
 #  c

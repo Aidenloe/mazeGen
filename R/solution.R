@@ -6,20 +6,16 @@
 # ' @author Aiden Loe and Maria Sanchez
 # ' @title solution
 # ' @examples
-# ' rank <- 3
-# ' a <- colourNodePosition(rank=3,satPercent=0.5,seed=1)
-# ' solution(rank,a)
+# ' a <- np(rank=3,satPercent=0.5,seed=1)
+# ' solution(a)
 
-solution <- function(rank,nodePosition){
+solution <- function(nodePosition){
   if("np" %in% class(nodePosition) == FALSE){
-    stop("nodePosition must be calculated using the colourNodePosition function.")
+    stop("nodePosition must be calculated using the np function.")
   }
 
-  if(rank != nodePosition$rank){
-    stop("The input rank and the rank to calculate the colour node positions are not the same.")
-  }
-  #set.seed(set.seed)
-  #nodePosition <- colourNodePosition(rank, satPercent,set.seed)
+
+  rank <- nodePosition$rank
   nodePosition <- nodePosition$nodePosition
 
   print("The black points are in nodes: ")

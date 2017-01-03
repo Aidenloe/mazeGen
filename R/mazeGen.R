@@ -1,13 +1,15 @@
 #' mazeGen: A package for generating Elithorn Maze
 #' @description The mazeGen package provides a function to generate the Perceptual Elithorn Maze as well as the methods for calculating task difficulty without incorporating reponses.
 #'
-#' @details The \code{\link{maze}} function will allow you to generate the mazes according to certain specification. Currently the maximum number of row is 18. To get a summary of the maze parameters, users can use the \code{\link{mazeEst}}.  \cr
+#' @details The \code{\link{mazeHTML}} function will allow you to generate the mazes according to certain specification. Currently the maximum number of row is 18. To get a summary of the maze parameters, users can use the \code{\link{mazeEst}}.  \cr
 #'
-#' The difficulty of the maze can be calculated using the \code{\link{mazeDiff}}. Using this approch does not consider player's responses but just the parameters involve to create the maze. There are three options using  to calculate the maze difficulty using the function. \cr
+#'For most functions to work, generate you need to first get the random distribution of the coloured nodes. Using the \code{\link{np}} function will allow you to do that. There are occasions where one might want to select the maximum score achievable for a given maze with a known saturation. The \code{\link{genPathSeed}} function will search for the seed that gives the specific max score when using it in the \code{\link{np}} function
+#'.
+#' The difficulty of the maze can be calculated using the \code{\link{mazeDiff}}. Using this approch does not consider player's responses but just the parameters involve to create the maze. Three models are used to calculate the maze difficulty using the function. \cr
 #'
-
+#' The ability score of the participants can be calculated using the \code{\link{mazeAbility}}. There are 4 different models used to calcuate the participants' ability.
 #' @references
-#' Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
+#' Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. \emph{British Journal of Psychology, 56(2-3)}, 295-302. \cr
 #'
 #' Davies, M. G., & Davies, D. M. (1965). Some analytical properties of Elithorn\verb{'s} perceptual maze. Journal of Mathematical Psychology, 2(2), 371-380.
 #' @name mazeGen

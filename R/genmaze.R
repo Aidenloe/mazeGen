@@ -4,9 +4,11 @@
 #' @details The Genmaze function generates the list of edges. The edges will be used to construct the maze.
 #' @author Aiden Loe
 #' @title genMaze
+#' @examples
+#' genMaze(rank=5)
 
 
-genMaze<- function(rank){
+genMaze<- function(rank=5){
   lista<-c()
   RR<-as.numeric(rank)^2
   for (i in 1:RR){
@@ -21,6 +23,7 @@ genMaze<- function(rank){
   AA<-A-2
   return(lista[1:AA])
 }
+
 
 
 

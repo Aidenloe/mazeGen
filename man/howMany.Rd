@@ -7,18 +7,24 @@
 howMany(rank, satPercent)
 }
 \arguments{
-\item{rank}{This is the Rank of the maze.}
+\item{rank}{This is the rank of the maze.}
 
-\item{satPercent}{Percentage of saturation.}
+\item{satPercent}{The percentage of saturation. Between 0-1.}
 }
 \description{
-Calculates how many possible variation of black dotes for a given saturation.
+Calculate how many possible variation of black dotes for a given saturation.
 }
 \details{
-Calculates how many possible variation of black dotes for a given saturation.
-Does not account for the first node being a black dot. The first node will not be a black dot.
+Calculate how many possible variation of black dotes for a given saturation. The first node will not be a black dot.
+}
+\examples{
+howMany(rank=5, satPercent=0.5)
 }
 \author{
 Aiden Loe
 }
+\seealso{
+\code{\link{lowerGrid}}
+}
+\keyword{lowerGrid}
 

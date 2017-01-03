@@ -4,25 +4,44 @@
 \alias{mazeEst}
 \title{Calculate Maze Parameters}
 \usage{
-mazeEst(rank, nodePosition)
+mazeEst(nodePosition)
 }
 \arguments{
-\item{rank}{This is the Rank of the maze.}
-
 \item{nodePosition}{Tells you all the position of the black dots.}
 }
+\value{
+\describe{
+\item{rank}{The rank of the maze}
+\item{nodePosition}{The location of the coloured dots}
+\item{maxScore}{The maximum score achievable in the maze.}
+\item{possibleBlackNodeRoutes}{All possible routes that passes a certain number of black dots}
+\item{minStep}{The minimum steps to achieve the maximum score}
+\item{allminPath}{The number of paths with the minimum steps to achieve the maximum score.}
+\item{minRoutes}{All the paths with the minimum steps to achieve the maximum score.}
+\item{allPath}{The number of possible paths to achieve the maximum score.}
+\item{maxScoreRoutes}{All possible paths to achieve the maximum score.}
+    }
+}
 \description{
-This returns several results.
+This returns the estimate of various maze parameters.
 }
 \details{
 This function calculates the count of all the possible black node routes, the maximum score one can achieve for a given rank of a colour node position, all the minimum routes possible, and all the possible routes.
 }
 \examples{
 rank <- 10
-nodePosition <- colourNodePosition(rank=10,satPercent=0.5,seed=16)
-c <- mazeEst(rank,nodePosition)
+nodePosition <- np(rank=10,satPercent=0.5,seed=16)
+c <- mazeEst(nodePosition)
 }
 \author{
 Aiden Loe
+}
+\references{
+Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
+
+Davies, M. G., & Davies, D. M. (1965). Some analytical properties of Elithorn\verb{'s} perceptual maze. Journal of Mathematical Psychology, 2(2), 371-380.
+}
+\seealso{
+\code{\link{np}}
 }
 

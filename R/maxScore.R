@@ -1,22 +1,30 @@
 # ' @export
 # ' @import igraph
-# ' @param rank This is the Rank of the maze.
 # ' @param nodePosition tells you all the position of the black dots
 # ' @description This tells you the maximum score for a given rank and a given colour node positions.
 # ' @details The maxScore function returns the maximum score for a given rank and a given colour node positions. You need to use the colour node position function first.
 # ' @author Aiden Loe
 # ' @title Maximum Score
 # ' @examples
-# ' rank<- 3
 # '
-# ' colourNodePosition(rank=3,satPercent=0.5,seed=1)
+# ' np(rank=3,satPercent=0.5,seed=1)
 # '
-# '
-# ' maxScore(rank,nodePosition)
+# ' maxScore(nodePosition)
 # '
 
 
-maxScore <- function(rank,nodePosition){
+maxScore <- function(nodePosition){
+
+
+  if("np" %in% class(nodePosition) == FALSE){
+    stop("nodePosition must be calculated using the np function.")
+  }
+
+
+  rank <- nodePosition$rank
+  nodePosition <- nodePosition$nodePosition
+
+
 
 #### Lower Grid Maze Nodes ####
 G <- graph(genMaze(rank), directed = TRUE )
@@ -48,8 +56,8 @@ optimisedScore <- totalScore.df.1[which(totalScore.df.1$totalScore == max(totalS
 return(optimisedScore)
 }
 
-# maxScore(rank,nodePosition)
-# maxScore(3,colourNodePosition(rank=3,satPercent=0.5,seed=1))
+
+# maxScore(np(rank=3,satPercent=0.5,seed=1))
 
 
 

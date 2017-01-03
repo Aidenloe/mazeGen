@@ -4,14 +4,12 @@
 \alias{mazeDiff}
 \title{Maze Diffculty}
 \usage{
-mazeDiff(rank, nodePosition, model = "first")
+mazeDiff(nodePosition, model = "m1")
 }
 \arguments{
-\item{rank}{This is the Rank of the maze.}
-
 \item{nodePosition}{This is the distribution of the colour node positions.}
 
-\item{model}{There are three types of model to select from: "First", "Second" or "Third".}
+\item{model}{There are three types of model to select from: "m1", "m2" or "m3".}
 }
 \description{
 This function tells us the difficulty level of the rank given a saturation and black node distribution
@@ -35,21 +33,19 @@ where \eqn{l} is the minimum steps to pass through \eqn{\hat{m}} and \eqn{b=4}. 
 We included all three approaches to calculate maze difficulty. It was to incorporated all the possible parameters of the task features that may potentially influence maze difficulty.
 }
 \examples{
-\dontrun{
-
-rank <- 5
-
 #Black nodes distribution
-nodePosition <- colourNodePosition(rank=5,satPercent=0.5,seed=1)
+nodePosition <- np(rank=5,satPercent=0.5,seed=1)
 
 #calculate difficulty
-mazeDiff(rank ,nodePosition, model="first")
-}
+mazeDiff(nodePosition, model="m1")
 }
 \author{
 Aiden Loe and Maria Sanchez
 }
 \references{
-Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
+Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. \emph{British Journal of Psychology, 56(2-3)}, 295-302. \cr
+}
+\seealso{
+\code{\link{mazeEst}}, \code{\link{mazeAbility}}, \code{\link{np}}
 }
 

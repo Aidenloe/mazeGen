@@ -2,9 +2,10 @@
 % Please edit documentation in R/genPathSeed.R
 \name{genPathSeed}
 \alias{genPathSeed}
-\title{genUniqueSolution}
+\title{Generate Path Seed}
 \usage{
-genPathSeed(path, rank, satPercent, seed)
+genPathSeed(path = 3, rank = 5, satPercent = 0.5, seed = 1,
+  runSeed = 500)
 }
 \arguments{
 \item{path}{Selecting the specific number of paths to achieve the maximum score.}
@@ -14,24 +15,34 @@ genPathSeed(path, rank, satPercent, seed)
 \item{satPercent}{This is of saturation percentage ranging from 0-1.}
 
 \item{seed}{The starting seed to begin searching for the seed with specific paths.}
+
+\item{runSeed}{This determines the number of searches for the specific paths before stopping.}
 }
 \description{
 This generate the solution by searching for the SEED that returns the specific number of paths to achieve the maximum score for a given rank and saturation.
 }
 \details{
-This might be computationally intensive as the maze size increases. The seed is necessary so that the algorithm does not always begin from the smallest value. Based on the seed value, it will search for the next biggest that returns 1 unique solution.
+This might be computationally intensive as the maze size increases. The seed is necessary so that the algorithm does not always begin from the smallest seed value. Based on the starting seed value, it will search for the next seed that returns the desired number of path defined by the user. To limit the search time, The function will stop looking for the seed based on the runSeed value.
 }
 \examples{
 rank <- 5
 satPercent <- 0.5
 seed <- 1
 
-#Searches for just one unique solution
-justOne <- genPathSeed(path=3,rank=rank,satPercent=satPercent,seed=seed)
-nodePosition <- colourNodePosition(rank,satPercent,seed=justOne)
-mazeEst(rank,nodePosition)
+#Search for just one unique path
+justOne <- genPathSeed(path=1,rank=rank,satPercent=satPercent,seed=seed)
+nodePosition <- np(rank,satPercent,seed=justOne)
+mazeEst(nodePosition)
+
+#Search for three path
+justThree <- genPathSeed(path=3,rank=rank,satPercent=satPercent,seed=seed, runSeed=300)
+nodePosition <- np(rank,satPercent,seed=justThree)
+mazeEst(nodePosition)
 }
 \author{
 Aiden Loe and Maria Sanchez
+}
+\seealso{
+\code{\link{np}},\code{\link{mazeEst}}
 }
 

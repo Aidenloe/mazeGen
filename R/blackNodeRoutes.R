@@ -1,24 +1,28 @@
 # ' @export
 # ' @import igraph
-# ' @param rank This is the Rank of the maze.
 # ' @param nodePosition tells you all the position of the black dots
 # ' @description This function returns the frequently of paths going through at least one black dots
 # ' @details This function returns the frequently of paths going through at least one of black dots
 # ' @author Aiden Loe and Maria
 # ' @title blackNodeRoutes
 # ' @examples
-# ' rank <- 5
-# ' a <- colourNodePosition(rank=5,satPercent=0.5,seed=1)
-# ' blackNodeRoutes(rank,a)
+# ' a <- np(rank=5,satPercent=0.5,seed=1)
+# ' blackNodeRoutes(a)
 
 
 
-blackNodeRoutes <- function(rank,nodePosition){
+blackNodeRoutes <- function(nodePosition){
 
-  if(rank != nodePosition$rank){
-    stop("The input rank and the rank to calculate the colour node positions are not the same.")
+
+  if("np" %in% class(nodePosition) == FALSE){
+    stop("nodePosition must be calculated using the np function.")
   }
 
+#   if(rank != nodePosition$rank){
+#     stop("The input rank and the rank to calculate the colour node positions are not the same.")
+#   }
+
+rank <- nodePosition$rank
 nodePosition <- nodePosition$nodePosition
   ##COMPUTE THE PATHS
   #all of them
@@ -69,6 +73,6 @@ return(table(endScore$totalScore))
 
 
 #  rank <- 5
-# a <- colourNodePosition(rank=5,satPercent=0.5,seed=1)
+# a <- np(rank=5,satPercent=0.5,seed=1)
 # a$nodePosition
-#  blackNodeRoutes(rank,a)
+#  blackNodeRoutes(a)

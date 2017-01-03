@@ -18,15 +18,14 @@
 # ' }
 
 
-lookUniqueSolution <- function(rank,satPercent,seed){
+lookUniqueSolution <- function(rank=5,satPercent=0.5,seed=1){
   ##RETURNS: Black points position, optimal routes, number of optimal routes and number of steps for optimal solution
 
   set.seed(seed)
-  nodePosition <-  colourNodePosition(rank, satPercent,seed)
+  nodePosition <-  np(rank, satPercent,seed)
   nodePosition <- nodePosition$nodePosition
 
   ##COMPUTE THE PATHS
-
   #all of them
   G<-graph(genMaze(rank))
   allPaths<-c()
@@ -102,7 +101,7 @@ pathSolution <- function(rank=5,satPercent=0.5,seed=1){
   ##RETURNS: Black points position, optimal routes, number of optimal routes and number of steps for optimal solution
 
   set.seed(seed)
-  nodePosition <-  colourNodePosition(rank, satPercent,seed)
+  nodePosition <-  np(rank, satPercent,seed)
   nodePosition <- nodePosition$nodePosition
 
   ##COMPUTE THE PATHS

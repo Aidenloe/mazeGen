@@ -4,16 +4,19 @@
 \alias{lowerGrid}
 \title{lowerGrid}
 \usage{
-lowerGrid(rank)
+lowerGrid(rank = 5)
 }
 \arguments{
-\item{rank}{This is the Rank of the maze.}
+\item{rank}{This is the rank of the maze.}
 }
 \description{
-This tells you all the nodes position in the lower grid.
+This tells you all the node position in the maze.
 }
 \details{
-returns the nodes positioned at the lower grid
+The construction of the maze is first created in a symmetrical format. However, only half of the nodes are kept in order to create the actual maze. Hence, this function calculates the nodePosition of the actual maze.
+}
+\examples{
+lowerGrid(3)
 }
 \author{
 Aiden Loe

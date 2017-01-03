@@ -1,5 +1,4 @@
 # ' @export
-# ' @param rank This is the Rank of the maze.
 # ' @param nodePosition  Tells you all the position of the black dots.
 # ' @description This function tells us the minimum steps to achieve the maximums core given the colour node positions.
 # ' @details This function tells us the minimum steps to achieve the maximums core given the colour node positions.
@@ -12,21 +11,27 @@
 # '
 # ' nodeLength(rank)# longest row
 # '
-# ' nodePosition <- colourNodePosition(rank, satPercent, 2) ### always set seed.
+# ' nodePosition <- np(rank, satPercent, 2) ### always set seed.
 # '
 # ' #Get Max Score
-# ' maxScore(rank, nodePosition)
+# ' maxScore(nodePosition)
 # '
-# ' maxRoutes <- maxScoreRoutes(rank, nodePosition)
+# ' maxRoutes <- maxScoreRoutes(nodePosition)
 # '
 # ' # Get minimum steps required to get maximum score
-# ' minStep(rank, nodePosition)
+# ' minStep(nodePosition)
 #
 # ' }
 
 #number of steps
-minStep <- function(rank, nodePosition){
+minStep <- function(nodePosition){
 
+  if("np" %in% class(nodePosition) == FALSE){
+    stop("nodePosition must be calculated using the np function.")
+  }
+
+  rank <- nodePosition$rank
+  nodePosition <- nodePosition$nodePosition
 #allPaths
 allPaths<-c()
 G <- graph(genMaze(rank), directed = TRUE )
