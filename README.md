@@ -1,4 +1,16 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+mazeGen
+=======
+
+mazeGen is a maze generator. The functions inside the package can create the Elithorn Perceptual Maze as a HTML template or R object. The package also includes function to calculate the maze parameter and the ability of the participant following Davies & Davies (1965) methods.
+
+-   mazeGen
+    -   `mazeAbility`
+    -   `mazeDiff`
+    -   `mazeEst`
+    -   `maxScore`
+    -   `mazeHTML`
+    -   `mazeObject`
 
 ------------------------------------------------------------------------
 
