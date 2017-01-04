@@ -2,5 +2,10 @@
 
 * Added a `NEWS.md` file to track changes to the package.
 
+# mazeGen 0.1.1
+
+### MINOR CHANGES
+
+* Change the wording in the maze instructions from 'top' to "{{direction}}" in the mazeHTML function and the mazeObject function. 
 
 
