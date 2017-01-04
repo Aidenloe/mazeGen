@@ -113,7 +113,7 @@ mazeObject <- function(rank = 3,
          \n<br>
          \n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\"><span style=\"color: white;font-size:25px\">Level {{level}} out of {{t_question}}.</span></p>
          \n<body>
-         \n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">The goal is to collect as many gold coins as possible as you plan your route up to the top.</font></p>
+         \n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">The goal is to collect as many gold coins as possible as you plan your route up to the {{direction}}.</font></p>
          \n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">To start, click on the first node at the bottom of the maze.</font></p>")
 
   if(Timer==TRUE){

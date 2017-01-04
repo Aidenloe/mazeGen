@@ -128,7 +128,7 @@ mazeHTML <- function(rank = 3,
   cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\"><span style=\"color: white;font-size:25px\">Level {{level}} out of {{t_question}}.</span></p>",append=TRUE, file = htmlfile)
   cat("\n<body>", append = TRUE, file = htmlfile)
 
-  cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">The goal is to collect as many gold coins as possible as you plan your route up to the top.</font></p>", append=TRUE, file=htmlfile)
+  cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">The goal is to collect as many gold coins as possible as you plan your route up to the {{direction}}.</font></p>", append=TRUE, file=htmlfile)
   cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">To start, click on the first node at the bottom of the maze.</font></p>", append=TRUE, file=htmlfile)
   if(Timer==TRUE){
     cat("\n<input id=\"countdown\" name=\"timeLeft\" type=\"hidden\" />", append=TRUE, file=htmlfile)
