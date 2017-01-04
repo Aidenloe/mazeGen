@@ -38,7 +38,6 @@ The grid object needs to be the same as the rank given.
 \examples{
 
 rank <- 3
-i <- 2
 satPercent <- 0.5
 
 #Grid must be same as rank

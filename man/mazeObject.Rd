@@ -46,6 +46,8 @@ mazeObject(rank,satPercent,seed=5,grid = grid,
 background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 Timer=TRUE)
 
+
+
 }
 \author{
 Aiden Loe

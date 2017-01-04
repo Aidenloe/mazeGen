@@ -14,7 +14,7 @@ mazeAbility(nodePosition, dot = 2, model = "t2")
 \item{model}{There are 4 models to estimate ability (t1,t2,t3,t4).}
 }
 \value{
-A 'ab' class which will be used for other functions in the package.
+An 'ab' class is created which will be used for other functions in the package.
 }
 \description{
 The ability function returns the weighted score of the individual given his raw score (i.e. the number of black dotes collected).

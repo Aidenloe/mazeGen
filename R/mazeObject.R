@@ -33,6 +33,8 @@
 #' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 #' Timer=TRUE)
 #'
+#'
+#'
 
 
 mazeObject <- function(rank = 3,
