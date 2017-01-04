@@ -4,7 +4,7 @@
 #' @details This function calculates the count of all the possible black node routes, the maximum score one can achieve for a given rank of a colour node position, all the minimum routes possible, and all the possible routes.
 #' @title Calculate Maze Parameters
 #' @author Aiden Loe
-#' @seealso \code{\link{np}}
+#' @seealso \code{\link{np}}, \code{\link{mazeDiff}}, \code{\link{mazeAbility}}
 #' @return
 #' \describe{
 #' \item{rank}{The rank of the maze}

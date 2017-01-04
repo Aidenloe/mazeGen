@@ -45,3 +45,13 @@ print.ab <- function(x,...){
   print(ability$result)
 }
 
+#' @export
+#'
+# For minimum leg routes function
+print.min<- function(x,...){
+  mLRoutes <- x
+  cat("The number of solution is:", mLRoutes$totalminPaths, "\n")
+  cat("The optimium path(s) with minimum legs is:",mLRoutes$minSteps,"\nThe minimum number of steps for the optimal solution is:\n")
+  print(mLRoutes$minPaths)
+}
+

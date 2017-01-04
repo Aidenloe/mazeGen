@@ -9,13 +9,12 @@
 #' @param satPercent The saturation of the number of black dots created for a given grid. Range between 0-1.
 #' @param seed To make sure that the randomness of the created black dots is captured and not repeated.
 #' @param grid is the grid of the maze
-#' @param wd is the working directory to save the HTML source code in. If not given, the file will be saved in the default working directory.
 #' @param background The background colour of the page.
 #' @param boxBackground The background colour of the box.
 #' @param fontColour The font colour of the instructions.
 #' @param Timer If True, a time limit of 4 mintues is given per question.
-#' @description This function generates an Elithorn Maze
-#' @details This function creates a maze and is saved into your working directory.
+#' @description This function generates the html template of the Elithorn Maze in an R object.
+#' @details This function creates a plot with the maze blueprint into your working directory.
 #' A grid object needs to be called out first before runing the maze function.
 #' The grid object needs to be the same as the rank given.
 #' @author Aiden Loe
@@ -24,56 +23,46 @@
 #' @examples
 #'
 #' rank <- 3
-#' i <- 2
 #' satPercent <- 0.5
 #'
 #' #Grid must be same as rank
 #' grid <- gridThreeUp
 #'
-#' #Folder to save html/
-#' #setwd("~/desktop")
-#' #filePath<- getwd()
-#'
 #' #Generate item
-#' mazeHTML(rank,satPercent,seed=5,grid = grid,wd=NULL,
+#' mazeObject(rank,satPercent,seed=5,grid = grid,
 #' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 #' Timer=TRUE)
 #'
 
 
-mazeHTML <- function(rank = 3,
-                 satPercent = 0.5,
-                 seed = 1,
-                 grid = NULL,
-                 wd = NULL,
-                 background="#7abcff",
-                 boxBackground = "#66CDAA",
-                 fontColour="white",
-                 Timer=TRUE){
+mazeObject <- function(rank = 3,
+                     satPercent = 0.5,
+                     seed = 1,
+                     grid = NULL,
+                     background="#7abcff",
+                     boxBackground = "#66CDAA",
+                     fontColour="white",
+                     Timer=TRUE){
 
   if(is.null(grid)){
     stop("Please select a grid of a specific rank to construct the maze.")
   }
 
-  if(is.null(wd)){
-    warning("HTML file is saved in default working directory.")
-  }
 
   if(!is.logical(Timer)){
     stop("Please set Timer as TRUE or FALSE.")
   }
 
-
-# require(igraph)
-#   rank = 8
-#   satPercent = 0.5
-#   seed = 1
-#   grid = gridEightUp
-#   wd = setwd("~/desktop")
-#   background="#7abcff"
-#   boxBackground = "#66CDAA"
-#   fontColour="white"
-#   Timer=FALSE
+# require(mazeGen)
+#   require(igraph)
+#     rank = 8
+#     satPercent = 0.5
+#     seed = 1
+#     grid = gridEightUp
+#     background="#7abcff"
+#     boxBackground = "#66CDAA"
+#     fontColour="white"
+#     Timer=FALSE
 
   G <- graph(genMaze(rank), directed = TRUE )
 
@@ -101,72 +90,68 @@ mazeHTML <- function(rank = 3,
   nodePosition <- nodePosition$nodePosition
 
   #minimum steps to achieve maximum score
-  # mazeGen:::minStep( nodeLength)
+  # mazeGen:::minStep(nodeLength)
   #
   # # number of optimised Routes
-  # mazeGen:::maxScoreRoutes( nodePosition)
+  # mazeGen:::maxScoreRoutes(nodePosition)
   #
   # #Complete solution
-  # mazeGen:::solution( nodePosition)
+  # mazeGen:::solution(nodePosition)
   #
-  # blackNodeRoutes(nodePosition)
+  # blackNodeRoutes(rank,nodePosition)
   # lookUniqueSolution(rank,saturation,seed)
 
-  ##### From Here (HTML) ####
-  if(is.null(wd)){
-    wd = getwd()
-  }
+
 
   ##### From Here (HTML) ####
-  htmlfile = file.path(paste0(wd, "/seed",seed,".html"))
+  # htmlfile = file.path(paste0(wd, "/seed",seed,".html"))
 
 
-  cat("\n<html><head>",file=htmlfile)
-  # CSS
-  cat(css(background,boxBackground), append= TRUE, file = htmlfile)
-  cat("\n</head>", append=TRUE, file = htmlfile)
-  cat("\n<br>", append=TRUE, file = htmlfile)
-  cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\"><span style=\"color: white;font-size:25px\">Level {{level}} out of {{t_question}}.</span></p>",append=TRUE, file = htmlfile)
-  cat("\n<body>", append = TRUE, file = htmlfile)
 
-  cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">The goal is to collect as many gold coins as possible as you plan your route up to the top.</font></p>", append=TRUE, file=htmlfile)
-  cat("\n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">To start, click on the first node at the bottom of the maze.</font></p>", append=TRUE, file=htmlfile)
+  htmlOne <- paste0("\n<html><head>",
+         css(background,boxBackground),
+         "\n</head>
+         \n<br>
+         \n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\"><span style=\"color: white;font-size:25px\">Level {{level}} out of {{t_question}}.</span></p>
+         \n<body>
+         \n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">The goal is to collect as many gold coins as possible as you plan your route up to the top.</font></p>
+         \n<p align=\"center\" style=\"font-family:lucida sans unicode,lucida grande,sans-serif;font-size:20px;\"><font color=\"white\">To start, click on the first node at the bottom of the maze.</font></p>")
+
   if(Timer==TRUE){
-    cat("\n<input id=\"countdown\" name=\"timeLeft\" type=\"hidden\" />", append=TRUE, file=htmlfile)
-    cat(paste0("\n<div style=\"text-align: center; font-size:35px\"><font color=\"",fontColour,"\">Timer: <span id=\"countdown2\">&nbsp;</span></font></div>"), append=TRUE, file=htmlfile)
+    htmlTimer <- paste0("\n<input id=\"countdown\" name=\"timeLeft\" type=\"hidden\" />
+           \n<div style=\"text-align: center; font-size:35px\">
+           <font color=\"",fontColour,"\">Timer: <span id=\"countdown2\">&nbsp;</span></font></div>")
+  }else{
+    htmlTimer<-paste0("")
   }
 
+htmlTwo <- paste0(htmlOne, htmlTimer)
 
   coordinates.1 <- grid
   plot(coordinates.1)
   coordinates.2<- coordinates.1[which(1:nrow(coordinates.1) %in% lowerGridCombind),]
   plot(coordinates.2)
 
-
-  # Plot Graph
   png(filename=paste0("map_",seed,".png"), height=1000, width=1000)
-
-  tryCatch(
-    {plot(G, layout=coordinates.1)
-    },
-    warning=function(w) {
-      stop("\n Stop: Rank and grid coordinates are not the same. (e.g, rank = 3, grid = gridThreeUp) ", message(w))
-    }
-  )
-  # combind vector of coordinates
-  #coord. <- cbind(grconvertX(coordinates.2[, 1], "user", "device"), cbind(grconvertY(coordinates.2[, 2], "user", "device")))
+   tryCatch(
+     {plot(G, layout=coordinates.1)
+     },
+     warning=function(w) {
+       stop("\n Stop: Rank and grid coordinates are not the same. (e.g, rank = 3, grid = gridThreeUp) ", message(w))
+     }
+   )
   coord.node <- cbind(grconvertX(coordinates.1[, 1], "user", "device"), cbind(grconvertY(coordinates.1[, 2], "user", "device")))
   coord. <- cbind(grconvertX(coordinates.1[lowerGridCombind, 1], "user", "device"), cbind(grconvertY(coordinates.1[lowerGridCombind, 2], "user", "device")))
   coord.1 <- apply(coord., 1:2, function(x) x/1.2) #adjust node coordinates
   dev.off()
-  coordinates.1
+
 
   #### TO here (CSS) ####
-  cat("\n<div align=center>", append = TRUE, file=htmlfile)
-  cat("<div class=box>", append=TRUE, file=htmlfile)
+   cssOne <- paste0("\n<div align=center>
+                       <div class=box>
+                       \n<div style= 'position:relative;width:auto; height:auto;margin:0 auto' id = 'graphContainer'>")
 
-  #margin:0 auto puts container in the center when it is a fixed width.
-  cat("\n<div style= 'position:relative;width:auto; height:auto;margin:0 auto' id = 'graphContainer'>", append=TRUE, file=htmlfile)  #position:relative(parent)
+  htmlThree <- paste0(htmlTwo, cssOne)
 
   #Position of the buttons is relative to the div position
   #z index puts the div tag at the top, so the nodes are above the edges.
@@ -179,7 +164,8 @@ mazeHTML <- function(rank = 3,
   }
 
   buttons
-  cat(buttons, append=TRUE, file=htmlfile)
+
+  htmlFour <- paste0(htmlThree,buttons)
 
   ed<- ends(G, E(G), names=FALSE)
   lowerGridCombind
@@ -244,25 +230,25 @@ mazeHTML <- function(rank = 3,
     }
   connections
 
-
-  cat("\n<div>", append = TRUE, file=htmlfile)
-  cat("\n <svg height=\"1000\" width=\"1000\">", append=TRUE, file=htmlfile)
-  cat(connections, append=TRUE, file=htmlfile)
-  cat("\n </svg>", append=TRUE, file=htmlfile)
-  cat("\n</div>", append = TRUE, file=htmlfile)
-  cat("\n</div>", append = TRUE, file=htmlfile)
-  cat("\n</div>", append = TRUE, file=htmlfile)
-  cat("\n</div>", append = TRUE, file=htmlfile)
-  cat("\n<div id=\"hidden\">&nbsp;</div>", append=TRUE, file=htmlfile) #saves all the info into the id=hidden. concerto will automatically save all this info in a form.
-  cat("\n<div id=\"hidden2\">&nbsp;</div>", append=TRUE, file=htmlfile)
-  cat("\n<div id=\"hidden3\">&nbsp;</div>", append=TRUE, file=htmlfile)
-  cat("\n<input name=\"next\" style=\"display: none;\" type=\"Submit\" value=\"next\" />",append=TRUE, file=htmlfile) # For concerto
-  #cat("\n<input type = 'submit' value = 'next' style='display: none'> ", append=TRUE, file = htmlfile)
-  cat("\n</div>", append = TRUE, file=htmlfile)
-  cat("\n<p style =\"width:150px; text-align: center; height:20px; background-color:#fff; border: 1px solid #999\" id=\"output\" hidden></p>", append=TRUE, file=htmlfile)
+connect <- paste0("\n<div>
+       \n <svg height=\"1000\" width=\"1000\">",
+       connections,
+       "\n </svg>
+       \n</div>
+       \n</div>
+       \n</div>
+       \n</div>
+       \n<div id=\"hidden\">&nbsp;</div>
+       \n<div id=\"hidden2\">&nbsp;</div>
+       \n<div id=\"hidden3\">&nbsp;</div>
+       \n<input name=\"next\" style=\"display: none;\" type=\"Submit\" value=\"next\" />
+       \n</div>
+       \n<p style =\"width:150px; text-align: center; height:20px; background-color:#fff; border: 1px solid #999\" id=\"output\" hidden></p>")
 
 
-  # Step 1 Break into col vectors
+htmlFive <- paste0(htmlFour,connect)
+
+# Step 1 Break into col vectors
   start.node <- ed[,1]
   start.node<- cbind(start.node)
 
@@ -274,7 +260,7 @@ mazeHTML <- function(rank = 3,
   # Include the position of which row to be reverse directions or unidirections
   ##### Step 2 for loop across number of col vectors
 
-    edge.list <- "\n var edgeArray=["
+  edge.list <- "\n var edgeArray=["
   arrowDirect
   start.index
   for (i in 1: 1:nrow(ed.2)){
@@ -287,8 +273,10 @@ mazeHTML <- function(rank = 3,
 
   edge.list <- paste0(edge.list,"];")
   edge.list
-  cat("\n<script>", append = TRUE, file = htmlfile)
-  cat(edge.list, append=TRUE, file=htmlfile)
+
+  edge <- paste0("\n<script>",edge.list)
+
+  htmlSix<- paste0(htmlFive,edge)
 
   #### TO GET NODE POSITIION ####
   v <- paste0("if(")
@@ -321,19 +309,31 @@ mazeHTML <- function(rank = 3,
 
 
   ##### javaScript1 Timer ####
-if(Timer==TRUE){
-  javaScript <- javaScriptTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
-}else{
-  javaScript <- javaScriptNoTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
-}
+  if(Timer==TRUE){
+    javaScript <- javaScriptTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
+  }else{
+    javaScript <- javaScriptNoTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
+  }
 
 
   ##### javascript 2 #####
   javaScript2 <- javaScriptTwo(finalRow=finalRow)
-  cat(javaScript, append=TRUE, file=htmlfile)
-  cat(javaScript2, append=TRUE, file=htmlfile)
-  cat("\n</script>", append = TRUE, file = htmlfile)
-  cat("\n</body>", append = TRUE, file = htmlfile)
-  cat("\n</html>", append = TRUE, file = htmlfile)
+ javaScript3 <-  paste0(javaScript, javaScript2,
+         "\n</script>
+         \n</body>
+         \n</html>" )
+ htmlSeven <- paste0(htmlSix,javaScript3)
+ htmlSeven
+ return(htmlSeven)
 
 }
+
+#htmlSeven
+#
+# htmlfile = file.path(paste0('~/Desktop', "/seed",seed,".html"))
+#
+# cat(htmlSeven,file=htmlfile)
+# ?png
+# png(filename=paste0("map_",seed,".png"), height=1000, width=1000)
+# plot(G, layout=coordinates.1)
+# dev.off()

@@ -3,7 +3,8 @@ Type: Package
 Title: Elithorn Maze Generator
 Version: 0.1.0
 Date: 2016-12-03
-Author: Bao Sheng Loe (Aiden)
+Author: Bao Sheng Loe (Aiden) [aut,cre,cph],
+	Maria Sanchez[ctb]
 Maintainer: Bao Sheng Loe (Aiden) <bsl28@cam.ac.uk>
 Description: This package includes the maze generation for the Elithorn Maze (HTML file) and the functions to calculate maze parameters (Difficulty and Ability). 
 License: GPL-3

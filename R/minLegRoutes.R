@@ -4,7 +4,7 @@
 # ' @description The minLegRoutes function tells you the possible routes to achieve a maximum score based on the colourNode position with a minimum number legs.
 # ' @details The minLegRoutes function tells you the possible routes to achieve a maximum score based on the colourNode position with a minimum number legs.
 # ' You need to use the nodePosition function first prior to using this.
-# ' @author Aiden Loe and Maria
+# ' @author Aiden Loe and Maria Sanchez
 # ' @title minLegRoutes
 # ' @examples
 # ' rank <- 3
@@ -16,7 +16,7 @@ minLegRoutes <- function(nodePosition){
   if("np" %in% class(nodePosition) == FALSE){
     stop("nodePosition must be calculated using the np function.")
   }
-
+  #nodePosition <- np(rank=3,satPercent=0.5,seed=1)
   rank <- nodePosition$rank
   nodePosition <- nodePosition$nodePosition
 
@@ -53,22 +53,25 @@ minLegRoutes <- function(nodePosition){
     LL<-c(LL,length(N))
   }
 
-  print("The optimium path(s) with minimum legs is: ")
-  W<-which( LL == min(LL))
-  print(allPaths[M[1,W]])
-  print("the minimum number of steps for the optimal solution is: ")
-  print(min(LL)-1)
-  print(("the number of solutions is: "))
+  # print("The optimium path(s) with minimum legs is: ")
+   W<-which( LL == min(LL))
+  minPaths <- do.call("rbind",allPaths[M[1,W]]) #minimum Paths
+  m2 <- 1:nrow(minPaths)
+  rownames(minPaths) <- rownames(m2, do.NULL = FALSE, prefix = "pos.Route.")
+  colnames(minPaths) <- paste("Step_",0:(ncol(minPaths)-1), sep = "")
 
-  return(length(W))
-#
-#     findAllRoutes <- NULL
-#     for(i in 1:nrow(optimisedScore)){
-#       findAllRoutes[[i]] <- allPaths[[optimisedScore$index[i]]]
-#     }
-#     return(findAllRoutes)
+
+  mLRoutes <- list(minSteps = min(LL)-1,
+                    minPaths = minPaths,
+                    totalminPaths = length(W))
+
+  class(mLRoutes) <- "min"
+  return(mLRoutes)
+
 }
 
-# a <- np(rank=3,satPercent=0.5,seed=1)
-# minLegRoutes(a)
+ # a <- np(rank=5,satPercent=0.5,seed=1)
+ # b<- minLegRoutes(a)
+ # b
+ # str(b)
 

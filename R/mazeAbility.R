@@ -23,7 +23,8 @@
 #' We included all four models to calculate maze ability.
 #' @author Aiden Loe and Maria Sanchez
 #' @title mazeAbility
-#'@seealso \code{\link{mazeDiff}}, \code{\link{np}}
+#' @seealso \code{\link{mazeDiff}}, \code{\link{np}}
+#' @return A 'ab' class which will be used for other functions in the package.
 #' @examples
 #'  nodePosition <- np(rank=6,satPercent=0.5,seed=1)
 #'  mazeAbility(nodePosition,dot=3, model="t2")

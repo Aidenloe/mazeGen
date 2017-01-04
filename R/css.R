@@ -1,5 +1,5 @@
 
-css <- function(background ,boxBackground){
+css <- function(background="#7abcff" ,boxBackground="#66CDAA"){
 css<- paste0("
     <style>
        html {height: 100%}
