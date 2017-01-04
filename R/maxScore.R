@@ -1,20 +1,19 @@
-# ' @export
-# ' @import igraph
-# ' @param nodePosition tells you all the position of the black dots
-# ' @description This tells you the maximum score for a given rank and a given colour node positions.
-# ' @details The maxScore function returns the maximum score for a given rank and a given colour node positions. You need to use the colour node position function first.
-# ' @author Aiden Loe
-# ' @title Maximum Score
-# ' @examples
-# '
-# ' np(rank=3,satPercent=0.5,seed=1)
-# '
-# ' maxScore(nodePosition)
-# '
+#' @export
+#' @import igraph
+#' @param nodePosition The position of the black dots.
+#' @description This returns the maximum score for a given rank and a given colour node position.
+#' @details The maxScore function returns the maximum score for a given rank and a given colour node positions. You need to use the colour node position function first.
+#' @author Aiden Loe
+#' @title Maximum Score
+#' @examples
+#'
+#' nodePosition <- np(rank=3,satPercent=0.5,seed=1)
+#'
+#' maxScore(nodePosition=nodePosition)
+#'
 
 
 maxScore <- function(nodePosition){
-
 
   if("np" %in% class(nodePosition) == FALSE){
     stop("nodePosition must be calculated using the np function.")
@@ -49,15 +48,15 @@ totalScore.df <- as.data.frame(totalScore)
 index <- 1:nrow(totalScore.df)
 totalScore.df.1<- cbind.data.frame(index,totalScore.df)
 optimisedScore <- totalScore.df.1[which(totalScore.df.1$totalScore == max(totalScore.df.1$totalScore, na.rm = TRUE)), ]
-# n<-nrow(optimisedScore)
-# M<-matrix(unlist(optimisedScore),ncol=n,byrow=TRUE)
-#
-# maxnu<-M[2,1]
-return(optimisedScore)
+n<-nrow(optimisedScore)
+M<-matrix(unlist(optimisedScore),ncol=n,byrow=TRUE)
+
+maxnu<-M[2,1]
+return(maxnu)
 }
 
-
-# maxScore(np(rank=3,satPercent=0.5,seed=1))
+require(igraph)
+ maxScore(np(rank=8,satPercent=0.5,seed=1))
 
 
 

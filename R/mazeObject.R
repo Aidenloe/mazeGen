@@ -81,11 +81,8 @@ mazeObject <- function(rank = 3,
   nodePosition <- np(rank, satPercent,seed)
 
   # max score
-  maxscore <- maxScore(nodePosition)
+  maxScore <- maxScore(nodePosition)
 
-  maxscore
-  maxScore <- max(maxscore$totalScore)
-  maxScore
 
   nodePosition <- nodePosition$nodePosition
 

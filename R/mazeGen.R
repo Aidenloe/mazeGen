@@ -10,6 +10,9 @@
 #' The difficulty of the maze can be calculated using the \code{\link{mazeDiff}}. Using this approch does not consider player's responses but just the parameters involve to create the maze. Three models are used to calculate the maze difficulty using the function. \cr
 #'
 #' The ability score of the participants can be calculated using the \code{\link{mazeAbility}}. There are 4 different models used to calcuate the participants' ability.
+#'
+#' Use the \code{\link{mazeHTML}} function to generate the maze in a HTML template or the \code{\link{mazeObject}} function to generate the maze in an R object. To use it with concerto, it is better to generate the maze in the R object and push it into a HTML template. This will allow an immediate generation of the maze in test mode.
+#'
 #' @references
 #' Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. \emph{British Journal of Psychology, 56(2-3)}, 295-302. \cr
 #'
