@@ -52,7 +52,7 @@ mazeDiff <- function(nodePosition, model = "m1"){
 
   rank <- nodePosition$rank
 
-  u_Mhat <-nrow(maxScore(nodePosition)) # number of optimised routes
+  u_Mhat <-maxScore(nodePosition) # number of optimised routes
   legs <- minStep(nodePosition)
   if(model=="m1"){
     diff<- log((2^rank)/u_Mhat)
