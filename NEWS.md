@@ -13,3 +13,5 @@
 
 * Updated the formula for mazeDiff function to work properly. 
 
+* Updated an argument concerto so that users can create templates for both concerto version 4 and concerto version 5. 
+

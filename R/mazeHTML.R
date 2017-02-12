@@ -14,6 +14,7 @@
 #' @param boxBackground The background colour of the box.
 #' @param fontColour The font colour of the instructions.
 #' @param Timer If True, a time limit of 4 mintues is given per question.
+#' @param concerto The code varies between concerto version "C4" and "C5".
 #' @description This function generates an Elithorn Maze
 #' @details This function creates a maze and is saved into your working directory.
 #' A grid object needs to be called out first before runing the maze function.
@@ -36,7 +37,7 @@
 #' #Generate item
 #' mazeHTML(rank,satPercent,seed=5,grid = grid,wd=NULL,
 #' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
-#' Timer=TRUE)
+#' Timer=TRUE, concerto="C5")
 #'
 
 
@@ -48,19 +49,26 @@ mazeHTML <- function(rank = 3,
                  background="#7abcff",
                  boxBackground = "#66CDAA",
                  fontColour="white",
-                 Timer=TRUE){
+                 Timer=TRUE,
+                 concerto="C5"){
 
   if(is.null(grid)){
     stop("Please select a grid of a specific rank to construct the maze.")
+  }
+
+  if(concerto != "C4" && concerto !="C5") stop("Please use select either C4 or C5 for the concerto argument.")
+
+  if(!is.logical(Timer)){
+    stop("Please set Timer as TRUE or FALSE.")
   }
 
   if(is.null(wd)){
     warning("HTML file is saved in default working directory.")
   }
 
-  if(!is.logical(Timer)){
-    stop("Please set Timer as TRUE or FALSE.")
-  }
+
+
+
 
 
 # require(igraph)
@@ -321,14 +329,22 @@ mazeHTML <- function(rank = 3,
 
   ##### javaScript1 Timer ####
 if(Timer==TRUE){
-  javaScript <- javaScriptTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
+  if(concerto == "C4"){
+    javaScript <- javaScriptTimerC4(colourNodePosition=colourNodePosition,maxScore=maxScore)
+  }else{
+    javaScript <- javaScriptTimerC5(colourNodePosition=colourNodePosition,maxScore=maxScore)
+  }
 }else{
   javaScript <- javaScriptNoTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
 }
 
 
   ##### javascript 2 #####
-  javaScript2 <- javaScriptTwo(finalRow=finalRow)
+  if(concerto =="C4"){
+  javaScript2 <- javaScriptTwoC4(finalRow=finalRow)
+  }else{
+    javaScript2 <- javaScriptTwoC5(finalRow=finalRow)
+  }
   cat(javaScript, append=TRUE, file=htmlfile)
   cat(javaScript2, append=TRUE, file=htmlfile)
   cat("\n</script>", append = TRUE, file = htmlfile)

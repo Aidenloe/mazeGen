@@ -13,6 +13,7 @@
 #' @param boxBackground The background colour of the box.
 #' @param fontColour The font colour of the instructions.
 #' @param Timer If True, a time limit of 4 mintues is given per question.
+#' @param concerto The code varies between concerto version "C4" and "C5".
 #' @description This function generates the html template of the Elithorn Maze in an R object.
 #' @details This function creates a plot with the maze blueprint into your working directory.
 #' A grid object needs to be called out first before runing the maze function.
@@ -31,7 +32,7 @@
 #' #Generate item
 #' mazeObject(rank,satPercent,seed=5,grid = grid,
 #' background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
-#' Timer=TRUE)
+#' Timer=TRUE, concerto="C5")
 #'
 #'
 #'
@@ -44,12 +45,14 @@ mazeObject <- function(rank = 3,
                      background="#7abcff",
                      boxBackground = "#66CDAA",
                      fontColour="white",
-                     Timer=TRUE){
+                     Timer=TRUE,
+                     concerto="C5"){
 
   if(is.null(grid)){
     stop("Please select a grid of a specific rank to construct the maze.")
   }
 
+  if(concerto != "C4" && concerto !="C5") stop("Please use select either C4 or C5 for the concerto argument.")
 
   if(!is.logical(Timer)){
     stop("Please set Timer as TRUE or FALSE.")
@@ -309,14 +312,22 @@ htmlFive <- paste0(htmlFour,connect)
 
   ##### javaScript1 Timer ####
   if(Timer==TRUE){
-    javaScript <- javaScriptTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
+    if(concerto== "C4"){
+    javaScript <- javaScriptTimerC4(colourNodePosition=colourNodePosition,maxScore=maxScore)
+    }else{
+      javaScript <- javaScriptTimerC5(colourNodePosition=colourNodePosition,maxScore=maxScore)
+    }
   }else{
     javaScript <- javaScriptNoTimer(colourNodePosition=colourNodePosition,maxScore=maxScore)
   }
 
 
   ##### javascript 2 #####
-  javaScript2 <- javaScriptTwo(finalRow=finalRow)
+  if(concerto=="C4"){
+    javaScript2 <- javaScriptTwoC4(finalRow=finalRow)
+  }else{
+    javaScript2 <- javaScriptTwoC5(finalRow=finalRow)
+  }
  javaScript3 <-  paste0(javaScript, javaScript2,
          "\n</script>
          \n</body>
