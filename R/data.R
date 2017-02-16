@@ -1478,4 +1478,196 @@
 #'
 "gridEighteenRight"
 
+#' Grid Nineteen Up
+#'
+#' This returns a nineteen grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineteenUp
+#' @usage data(gridNineteenUp)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 19
+#' data(gridNineteenUp)
+#' coordinates <- gridNineteenUp
+#'
+#' }
+#'
+"gridNineteenUp"
 
+
+
+#' Grid Nineteen Down
+#'
+#' This returns a nineteen grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineteenUp
+#' @usage data(gridNineteenDown)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 19
+#' data(gridNineteenDown)
+#' coordinates <- gridNineteenDown
+#'
+#' }
+#'
+"gridNineteenDown"
+
+
+#' Grid Nineteen Left
+#'
+#' This returns a nineteen grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineteenUp
+#' @usage data(gridNineteenLeft)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 19
+#' data(gridNineteenLeft)
+#' coordinates <- gridNineteenLeft
+#'
+#' }
+#'
+"gridNineteenLeft"
+
+
+#' Grid Nineteen Right
+#'
+#' This returns a nineteen grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridNineteenUp
+#' @usage data(gridNineteenRight)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 19
+#' data(gridNineteenRight)
+#' coordinates <- gridNineteenRight
+#'
+#' }
+#'
+"gridNineteenRight"
+
+
+
+#' Grid Twenty Up
+#'
+#' This returns a twenty grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwentyUp
+#' @usage data(gridTwentyUp)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 20
+#' data(gridTwentyUp)
+#' coordinates <- gridTwentyUp
+#'
+#' }
+#'
+"gridTwentyUp"
+
+
+
+#' Grid Twenty Down
+#'
+#' This returns a twenty grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwentyDown
+#' @usage data(gridTwentyDown)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 20
+#' data(gridTwentyDown)
+#' coordinates <- gridTwentyDown
+#'
+#' }
+#'
+"gridTwentyDown"
+
+
+#' Grid Twenty Left
+#'
+#' This returns a twenty grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwentyLeft
+#' @usage data(gridTwentyLeft)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 20
+#' data(gridTwentyLeft)
+#' coordinates <- gridTwentyLeft
+#'
+#' }
+#'
+"gridTwentyLeft"
+
+
+#' Grid Twenty Right
+#'
+#' This returns a twenty grid right maze. These are standardized coordinates.
+#'
+#' @docType data
+#' @keywords datasets
+#' @name gridTwentyRight
+#' @usage data(gridTwentyRight)
+#' @format A data frame with 2 columns
+#'\describe{
+#'   \item{start}{Coordinates of Start Node.}
+#'   \item{end}{Coordinates End Node.}
+#' }
+#' @examples \dontrun{
+#'
+#' # Returns a Grid with rank = 20
+#' data(gridTwentyRight)
+#' coordinates <- gridTwentyRight
+#'
+#' }
+#'
+"gridTwentyRight"

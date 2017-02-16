@@ -15,3 +15,9 @@
 
 * Updated an argument concerto so that users can create templates for both concerto version 4 and concerto version 5. 
 
+---
+# mazeGen 0.1.2
+
+* Added two new maze grid (R = 19, 20)
+
+* Changed timer to 1 minute 30 seconds instead of 4 mintues. Consistency as existing literature. 

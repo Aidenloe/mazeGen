@@ -38,8 +38,8 @@ javaScriptTimerC4 <- function(colourNodePosition,maxScore){
                         updateTimer();
                         }
 
-                        countdown( \"countdown\", 04, 00 );
-                        countdown( \"countdown2\", 04, 00 );
+                        countdown( \"countdown\", 01, 30 );
+                        countdown( \"countdown2\", 01, 30 );
 
 
                         var pageInput = document.getElementsByTagName(\"input\");
@@ -565,8 +565,8 @@ javaScriptTimerC5 <- function(colourNodePosition,maxScore){
                       updateTimer();
                       }
 
-                      countdown( \"countdown\", 04, 00 );
-                      countdown( \"countdown2\", 04, 00 );
+                      countdown( \"countdown\", 01, 30 );
+                      countdown( \"countdown2\", 01, 30 );
 
 
                       var pageInput = document.getElementsByTagName(\"input\");
