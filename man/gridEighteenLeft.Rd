@@ -26,4 +26,3 @@ coordinates <- gridEighteenLeft
 
 }
 \keyword{datasets}
-

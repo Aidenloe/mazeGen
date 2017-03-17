@@ -26,4 +26,3 @@ coordinates <- gridFourteenRight
 
 }
 \keyword{datasets}
-

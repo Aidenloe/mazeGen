@@ -22,4 +22,3 @@ topNodes(rank)
 \author{
 Aiden Loe
 }
-

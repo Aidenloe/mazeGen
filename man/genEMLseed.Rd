@@ -40,10 +40,9 @@ justThree <- genEMLseed(path=3,rank=rank,satPercent=satPercent,seed=seed, runSee
 nodePosition <- np(rank,satPercent,seed=justThree)
 mazeEst(nodePosition)
 }
-\author{
-Aiden Loe and Maria Sanchez
-}
 \seealso{
 \code{\link{np}},\code{\link{mazeEst}}, \code{\link{genPathSeed}}
 }
-
+\author{
+Aiden Loe and Maria Sanchez
+}

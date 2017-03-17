@@ -21,4 +21,3 @@ lowerGrid(3)
 \author{
 Aiden Loe
 }
-

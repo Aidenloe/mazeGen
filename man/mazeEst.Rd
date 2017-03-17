@@ -33,9 +33,6 @@ rank <- 10
 nodePosition <- np(rank=10,satPercent=0.5,seed=16)
 c <- mazeEst(nodePosition)
 }
-\author{
-Aiden Loe
-}
 \references{
 Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. British Journal of Psychology, 56(2-3), 295-302. \cr
 
@@ -44,4 +41,6 @@ Davies, M. G., & Davies, D. M. (1965). Some analytical properties of Elithorn\ve
 \seealso{
 \code{\link{np}}, \code{\link{mazeDiff}}, \code{\link{mazeAbility}}
 }
-
+\author{
+Aiden Loe
+}

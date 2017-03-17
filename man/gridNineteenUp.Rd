@@ -2,10 +2,13 @@
 % Please edit documentation in R/data.R
 \docType{data}
 \name{gridNineteenUp}
-\alias{gridNineteenDown}
-\alias{gridNineteenLeft}
-\alias{gridNineteenRight}
 \alias{gridNineteenUp}
+\alias{gridNineteenUp}
+\alias{gridNineteenDown}
+\alias{gridNineteenUp}
+\alias{gridNineteenLeft}
+\alias{gridNineteenUp}
+\alias{gridNineteenRight}
 \title{Grid Nineteen Up}
 \format{A data frame with 2 columns
 \describe{
@@ -65,4 +68,3 @@ coordinates <- gridNineteenRight
 
 }
 \keyword{datasets}
-

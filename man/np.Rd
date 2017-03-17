@@ -27,10 +27,9 @@ This function will not sample from the first node position. If you consider samp
 np(rank=3,satPercent=0.5,seed=1)
 
 }
-\author{
-Aiden Loe
-}
 \seealso{
 \code{\link{mazeEst}}, \code{\link{genPathSeed}}
 }
-
+\author{
+Aiden Loe
+}

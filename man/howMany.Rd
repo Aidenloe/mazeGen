@@ -20,11 +20,10 @@ Calculate how many possible variation of black dotes for a given saturation. The
 \examples{
 howMany(rank=5, satPercent=0.5)
 }
-\author{
-Aiden Loe
-}
 \seealso{
 \code{\link{lowerGrid}}
 }
+\author{
+Aiden Loe
+}
 \keyword{lowerGrid}
-

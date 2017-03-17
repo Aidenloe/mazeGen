@@ -21,4 +21,3 @@ genMaze(rank=5)
 \author{
 Aiden Loe
 }
-

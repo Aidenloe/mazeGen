@@ -41,13 +41,12 @@ nodePosition <- np(rank=5,satPercent=0.5,seed=1)
 mazeDiff(nodePosition, model="m1")
 
 }
-\author{
-Aiden Loe and Maria Sanchez
-}
 \references{
 Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elithorn\verb{'s} perceptual maze test. \emph{British Journal of Psychology, 56(2-3)}, 295-302. \cr
 }
 \seealso{
 \code{\link{mazeEst}}, \code{\link{mazeAbility}}, \code{\link{np}}
 }
-
+\author{
+Aiden Loe and Maria Sanchez
+}

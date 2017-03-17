@@ -26,4 +26,3 @@ Davies, A. D., & Davies, M. G. (1965). The difficulty and graded scoing of Elith
 
 Davies, M. G., & Davies, D. M. (1965). Some analytical properties of Elithorn\verb{'s} perceptual maze. \emph{Journal of Mathematical Psychology, 2(2)}, 371-380.
 }
-

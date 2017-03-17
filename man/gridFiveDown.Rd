@@ -26,4 +26,3 @@ coordinates <- gridFiveDown
 
 }
 \keyword{datasets}
-

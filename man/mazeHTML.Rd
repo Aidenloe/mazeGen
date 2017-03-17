@@ -55,10 +55,9 @@ background="#7abcff",boxBackground="#66CDAA", fontColour="white ",
 Timer=TRUE, concerto="C5")
 
 }
-\author{
-Aiden Loe
-}
 \seealso{
 \code{\link{mazeAbility}}, \code{\link{mazeDiff}}, \code{\link{np}}
 }
-
+\author{
+Aiden Loe
+}

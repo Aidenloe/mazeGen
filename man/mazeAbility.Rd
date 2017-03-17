@@ -42,10 +42,9 @@ We included all four models to calculate maze ability.
  nodePosition <- np(rank=6,satPercent=0.5,seed=1)
  mazeAbility(nodePosition,dot=3, model="t2")
 }
-\author{
-Aiden Loe and Maria Sanchez
-}
 \seealso{
 \code{\link{mazeDiff}}, \code{\link{np}}
 }
-
+\author{
+Aiden Loe and Maria Sanchez
+}

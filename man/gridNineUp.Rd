@@ -26,4 +26,3 @@ coordinates <- gridNineUp
 
 }
 \keyword{datasets}
-

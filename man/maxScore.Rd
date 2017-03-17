@@ -25,4 +25,3 @@ maxScore(nodePosition=nodePosition)
 \author{
 Aiden Loe
 }
-
