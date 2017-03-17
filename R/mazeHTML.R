@@ -125,7 +125,7 @@ mazeHTML <- function(rank = 3,
   }
 
   ##### From Here (HTML) ####
-  htmlfile = file.path(paste0(wd, "/seed",seed,".html"))
+  htmlfile = file.path(paste0(wd, "/maze_",seed,".html"))
 
 
   cat("\n<html><head>",file=htmlfile)
