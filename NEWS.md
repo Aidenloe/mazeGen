@@ -23,3 +23,5 @@
 * Changed timer to 1 minute 30 seconds instead of 4 mintues. Consistency as existing literature. 
 
 * Updated all the maze grid.
+
+* Updated HTML name.
