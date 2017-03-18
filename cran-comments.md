@@ -20,7 +20,7 @@
 
 ---
 
-* I have run R CMD check on the downstream dependencies of AIG
+* I have run R CMD check on the downstream dependencies of mazeGen
   (https://github.com/Aidenloe/mazeGen/blob/master/revdep/problems.md)
   
 * There were no problems found.
