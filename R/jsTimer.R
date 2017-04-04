@@ -3,58 +3,54 @@
 javaScriptTimerC4 <- function(colourNodePosition,maxScore){
   javaScript<- paste0("
                         ///////////// Count Down Timer Begin ////////////
-                        function countdown( elementName, minutes, seconds )
-                        {
-                        var element, endTime, hours, mins, msLeft, time;
+                      timerHandle = null;
 
-                        function twoDigits( n )
-                        {
-                        return (n <= 9 ? \"0\" + n : n);
-                        }
-                        function updateTimer()
-                        {
-                        msLeft = endTime - (+new Date);
-                        if (msLeft < 10000*6) {
-                        document.getElementById(\"countdown2\").style.color = \"red\";
-                        }
-                        if ( msLeft < 1000 ) {
-                        //element.innerHTML = \"countdown's over!\";
-                        //document.getElementById(\"countdown\");
-                        //document.countdown.submit();
-                        setTimeout('document.countdown2.submit()', 1);
-                        test.submit();
-                        } else {
-                        time = new Date( msLeft );
-                        hours = time.getUTCHours();
-                        mins = time.getUTCMinutes();
-                        element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
-                        timeStamp =   twoDigits( mins )  + ':' + twoDigits( time.getUTCSeconds()) ;
-                        setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-                        }
-                        }
+                      function countdown(minutes, seconds)
+                      {
+                      var endTime, hours, mins, msLeft, time;
 
-                        element = document.getElementById( elementName );
-                        endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
-                        updateTimer();
-                        }
+                      function twoDigits(n)
+                      {
+                      return (n <= 9 ? \"0\" + n : n);
+                      }
+                      function updateTimer()
+                      {
+                      msLeft = endTime - (+new Date);
+                      if (msLeft < 10000 * 6) {
+                      document.getElementById(\"countdown2\").style.color = \"red\";
+                      }
+                      if (msLeft < 1000) {
+                      test.submit();
+                      } else {
+                      time = new Date(msLeft);
+                      hours = time.getUTCHours();
+                      mins = time.getUTCMinutes();
+                      document.getElementById(\"countdown\").innerHTML = (hours ? hours + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
+                      document.getElementById(\"countdown2\").innerHTML = (hours ? hours + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
+                      timeStamp = twoDigits(mins) + ':' + twoDigits(time.getUTCSeconds());
+                      timerHandle = setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
+                      }
+                      }
 
-                        countdown( \"countdown\", 01, 30 );
-                        countdown( \"countdown2\", 01, 30 );
+                      endTime = (+new Date) + 1000 * (60 * minutes + seconds) + 500;
+                      updateTimer();
+                      }
+
+                      countdown(01, 30);
 
 
-                        var pageInput = document.getElementsByTagName(\"input\");
-                        for (i=0; i<pageInput.length; i++){
-                        console.log(pageInput[i]);
-                        pageInput[i].addEventListener('change', function()
-                        {
-                        console.log('test')
-                        document.getElementById(\"submitButton\").disabled = false;
-                        });
-                        }
+                      var pageInput = document.getElementsByTagName(\"input\");
+                      for (i = 0; i < pageInput.length; i++) {
+                      console.log(pageInput[i]);
+                      pageInput[i].addEventListener('change', function ()
+                      {
+                      console.log('test')
+                      document.getElementById(\"submitButton\").disabled = false;
+                      });
+                      }
 
 
-                        ///////////// Timer End ////////////
-
+                      ///////////// Timer End ////////////
                         var isFirstNodeClicked=true;
                         var prevNodeId=null;
                         var nodeArray = [];
@@ -530,54 +526,52 @@ return(javaScript)
 javaScriptTimerC5 <- function(colourNodePosition,maxScore){
   javaScript<- paste0("
                       ///////////// Count Down Timer Begin ////////////
-                      function countdown( elementName, minutes, seconds )
-                      {
-                      var element, endTime, hours, mins, msLeft, time;
+                     timerHandle = null;
 
-                      function twoDigits( n )
+                      function countdown(minutes, seconds)
+                      {
+                      var endTime, hours, mins, msLeft, time;
+
+                      function twoDigits(n)
                       {
                       return (n <= 9 ? \"0\" + n : n);
                       }
                       function updateTimer()
                       {
                       msLeft = endTime - (+new Date);
-                      if (msLeft < 10000*6) {
+                      if (msLeft < 10000 * 6) {
                       document.getElementById(\"countdown2\").style.color = \"red\";
                       }
-                      if ( msLeft < 1000 ) {
-                      //element.innerHTML = \"countdown's over!\";
-                      //document.getElementById(\"countdown\");
-                      //document.countdown.submit();
-                      setTimeout('document.countdown2.submit()', 1);
-                      testRunner.submitView();
+                      if (msLeft < 1000) {
+                      test.submit();
                       } else {
-                      time = new Date( msLeft );
+                      time = new Date(msLeft);
                       hours = time.getUTCHours();
                       mins = time.getUTCMinutes();
-                      element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
-                      timeStamp =   twoDigits( mins )  + ':' + twoDigits( time.getUTCSeconds()) ;
-                      setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+                      document.getElementById(\"countdown\").innerHTML = (hours ? hours + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
+                      document.getElementById(\"countdown2\").innerHTML = (hours ? hours + ':' + twoDigits(mins) : mins) + ':' + twoDigits(time.getUTCSeconds());
+                      timeStamp = twoDigits(mins) + ':' + twoDigits(time.getUTCSeconds());
+                      timerHandle = setTimeout(updateTimer, time.getUTCMilliseconds() + 500);
                       }
                       }
 
-                      element = document.getElementById( elementName );
-                      endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+                      endTime = (+new Date) + 1000 * (60 * minutes + seconds) + 500;
                       updateTimer();
                       }
 
-                      countdown( \"countdown\", 01, 30 );
-                      countdown( \"countdown2\", 01, 30 );
+                      countdown(01, 30);
 
 
                       var pageInput = document.getElementsByTagName(\"input\");
-                      for (i=0; i<pageInput.length; i++){
+                      for (i = 0; i < pageInput.length; i++) {
                       console.log(pageInput[i]);
-                      pageInput[i].addEventListener('change', function()
+                      pageInput[i].addEventListener('change', function ()
                       {
                       console.log('test')
                       document.getElementById(\"submitButton\").disabled = false;
                       });
                       }
+
 
 
                       ///////////// Timer End ////////////
@@ -1056,56 +1050,6 @@ return(javaScript)
 
 javaScriptNoTimer <- function(colourNodePosition, maxScore){
     javaScript<- paste0("
-   ////////// Timer [Start] //////
-
-                        var time = 0;
-                        var running = 0;
-                        var timeStamp;
-
-                        function startPause()
-                        {
-                        if(running == 0){
-                        running = 1;
-                        increment();
-                        //document.getElementById(\"startPause\").innerHTML = \"Pause\";
-                        }else{
-                        running = 0;
-                        //document.getElementById(\"startPause\").innerHTML = \"Resume\";
-                        }
-                        }
-
-
-                        function increment()
-                        {
-                        if(running == 1){
-                        setTimeout(function(){
-                        time++;
-                        var hours = Math.floor(time/10/60/60);
-                        var mins = Math.floor(time/10/60 % 60);
-                        var secs = Math.floor(time/10 % 60);
-                        var tenths = time % 10;
-
-                        if(hours < 10) {
-                        hours = \"0\" + hours;
-                    }
-
-                    if(mins < 10){
-                    mins = \"0\" + mins;
-                    }
-                    if(secs < 10){
-                    secs = \"0\" + secs;
-                    }
-                    document.getElementById(\"output\").innerHTML = hours + \":\" + mins + \":\" + secs + \":\" + \"0\" + tenths;
-                    timeStamp =  hours + \":\" + mins + \":\" + secs + \":\" + \"0\" + tenths;
-                    increment();
-
-                    },100);
-                    }
-                    }
-
-                    window.onload=startPause();
-
-                    ///////////// Timer End ////////////
 
                         var isFirstNodeClicked=true;
                         var prevNodeId=null;
@@ -1604,7 +1548,7 @@ javaScript2<- paste0(
   form.appendChild(div);
 
 
-
+  clearTimeout(timerHandle);
   test.submit('next'); // concerto
   return true; // stop the script.
   }
@@ -1631,6 +1575,7 @@ javaScript2<- paste0(
   inputElements5.setAttribute(\"value\", sum);
   div.appendChild(inputElements5);
   form.appendChild(div);
+  clearTimeout(timerHandle);
   test.submit('next'); // concerto
   return true; // stop the script.
 
@@ -1673,7 +1618,7 @@ javaScriptTwoC5 <-function(finalRow){
     form.appendChild(div);
 
 
-
+    clearTimeout(timerHandle);
     testRunner.submitView('next'); // concerto
     return true; // stop the script.
 }
@@ -1700,6 +1645,7 @@ inputElements4.setAttribute(\"value\", 0);
   inputElements5.setAttribute(\"value\", sum);
   div.appendChild(inputElements5);
   form.appendChild(div);
+  clearTimeout(timerHandle);
   testRunner.submitView('next'); // concerto
   return true; // stop the script.
 
