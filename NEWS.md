@@ -25,3 +25,9 @@
 * Updated all the maze grid.
 
 * Updated HTML name.
+
+---
+# mazeGen 0.1.3
+
+* Fixed timer code bug. 
+
