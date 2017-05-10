@@ -17,7 +17,7 @@ javaScriptTimerC4 <- function(colourNodePosition,maxScore){
                       {
                       msLeft = endTime - (+new Date);
                       if (msLeft < 10000 * 6) {
-                      document.getElementById(\"countdown2\").style.color = \"red\";
+                      document.getElementById(\"countdown2\").style.color = \"white\";
                       }
                       if (msLeft < 1000) {
                       test.submit();
