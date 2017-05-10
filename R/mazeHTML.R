@@ -63,7 +63,7 @@ mazeHTML <- function(rank = 3,
   }
 
   if(is.null(wd)){
-    warning("HTML file is saved in default working directory.")
+    message("HTML file is saved in default working directory.")
   }
 
 
