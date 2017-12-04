@@ -5,14 +5,8 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 note
 
-* This is an update of the package.
-
-* Possibly mis-spelled words in DESCRIPTION:
-  Elithorn (3:8, 9:48)
-
-* The spelling is correct. 
 
 ## Reverse dependencies
 
@@ -21,7 +15,6 @@
 ---
 
 * I have run R CMD check on the downstream dependencies of mazeGen
-  (https://github.com/Aidenloe/mazeGen/blob/master/revdep/problems.md)
   
 * There were no problems found.
 
