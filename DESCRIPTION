@@ -2,7 +2,7 @@ Package: mazeGen
 Type: Package
 Title: Elithorn Maze Generator
 Version: 0.1.2
-Date: 2017-03-17
+Date: 2017-12-04
 Author: Bao Sheng Loe (Aiden) [aut,cre,cph],
 	Maria Sanchez[ctb]
 Maintainer: Bao Sheng Loe (Aiden) <bsl28@cam.ac.uk>
