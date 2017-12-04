@@ -25,7 +25,7 @@ mazeHTML(rank = 3, satPercent = 0.5, seed = 1, grid = NULL, wd = NULL,
 
 \item{fontColour}{The font colour of the instructions.}
 
-\item{Timer}{If True, a time limit of 4 mintues is given per question.}
+\item{Timer}{If True, a time limit of 1 mintues and 30 seconds is given per question.}
 
 \item{concerto}{The code varies between concerto version "C4" and "C5".}
 }

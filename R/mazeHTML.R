@@ -13,7 +13,7 @@
 #' @param background The background colour of the page.
 #' @param boxBackground The background colour of the box.
 #' @param fontColour The font colour of the instructions.
-#' @param Timer If True, a time limit of 4 mintues is given per question.
+#' @param Timer If True, a time limit of 1 mintues and 30 seconds is given per question.
 #' @param concerto The code varies between concerto version "C4" and "C5".
 #' @description This function generates an Elithorn Maze
 #' @details This function creates a maze and is saved into your working directory.
@@ -241,11 +241,11 @@ mazeHTML <- function(rank = 3,
                             <path id=\"colourArrow\" d=\"M2,1 L2,10 L10,6 L2,2\" style=\"fill:blue\" />
                             </marker>
                             </defs>
-                            <path id=",paste0('"',ed.2[i,1],'_',ed.2[i,2],'"'), " d=","\"M",start.node.coord.1[i,1],',',start.node.coord.1[i,2],',L',end.node.coord.1[i,1],',',end.node.coord.1[i,2],"\" style=\"stroke:black; stroke-width: 3.25px; fill: none ;marker-end: url(#arrow",i,");\" >
+                            <path id=",paste0('"',ed.2[i,1],'_',ed.2[i,2],'"'), " d=","\"M",start.node.coord.1[i,1],' ',start.node.coord.1[i,2],' L',end.node.coord.1[i,1],' ',end.node.coord.1[i,2],"\" style=\"stroke:black; stroke-width: 3.25px; fill: none ;marker-end: url(#arrow",i,");\" >
                             </path> ")
     }else{
       connections <- paste0(connections,"
-                            <path id=",paste0('"',ed.2[i,1],'_',ed.2[i,2],'"'), " d=","\"M",start.node.coord.1[i,1],',',start.node.coord.1[i,2],',L',end.node.coord.1[i,1],',',end.node.coord.1[i,2],"\" style=\"stroke:black; stroke-width: 3.25px; fill: none ;\" >
+                            <path id=",paste0('"',ed.2[i,1],'_',ed.2[i,2],'"'), " d=","\"M",start.node.coord.1[i,1],' ',start.node.coord.1[i,2],' L',end.node.coord.1[i,1],' ',end.node.coord.1[i,2],"\" style=\"stroke:black; stroke-width: 3.25px; fill: none ;\" >
                             </path> ")
     }
     }

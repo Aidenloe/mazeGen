@@ -31,3 +31,9 @@
 
 * Fixed timer code bug. 
 
+---
+# mazeGen 0.1.4
+
+* Allow cross browser.
+
+* Updated some typos in the instructions. 
