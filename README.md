@@ -14,7 +14,7 @@ mazeGen is a maze generator. The functions inside the package can create the Eli
 
 ------------------------------------------------------------------------
 
-R/mazeGen is an [R](https://www.r-project.org) package with R functions that are useful to me for analysing the maze parameter and participant's ability.
+R/mazeGen is an R package with functions that are useful to me for analysing the maze parameter and participant's ability.
 
 ------------------------------------------------------------------------
 
